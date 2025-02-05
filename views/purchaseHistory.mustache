@@ -1,8 +1,18 @@
-<h1>Histórico de Compras</h1>
-<ul>
-  {{#purchases}}
-    <li>
-      <strong>{{Ticket.name}}</strong> - Quantidade: {{quantity}} - Total: R$ {{total}}
-    </li>
-  {{/purchases}}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico de Compras</title>
+</head>
+<body>
+  <h1>Histórico de Compras</h1>
+  <ul>
+    {{#purchases}}
+      <li>
+        <strong>{{Ticket.name}}</strong> - Quantidade: {{quantity}} - Total: R$ {{total}}
+      </li>
+    {{/purchases}}
+  </ul>
+</body>
+</html>
