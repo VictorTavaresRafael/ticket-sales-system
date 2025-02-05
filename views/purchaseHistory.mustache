@@ -1,0 +1,8 @@
+<h1>Histórico de Compras</h1>
+<ul>
+  {{#purchases}}
+    <li>
+      <strong>{{Ticket.name}}</strong> - Quantidade: {{quantity}} - Total: R$ {{total}}
+    </li>
+  {{/purchases}}
+</ul>
