@@ -12,12 +12,27 @@ exports.createTicket = async (req, res) => {
   }
 };
 
+
 exports.getTickets = async (req, res) => {
   try {
     const tickets = await Ticket.findAll();
     res.json(tickets);
   } catch (error) {
     res.status(500).json({ message: 'Erro ao buscar ingressos', error });
+  }
+};
+
+exports.getTicketById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const ticket = await Ticket.findByPk(id);
+    if (ticket) {
+      res.json(ticket);
+    } else {
+      res.status(404).json({ message: 'Ingresso não encontrado' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Erro ao buscar ingresso', error });
   }
 };
 

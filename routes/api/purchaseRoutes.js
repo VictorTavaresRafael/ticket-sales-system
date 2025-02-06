@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const purchaseController = require('../../controllers/purchaseController');
 
-// Rotas para histórico de compras
-router.get('/:userId', purchaseController.getPurchaseHistory); // Obter histórico de compras de um usuário
+// Rota para obter o histórico de compras de um usuário
+router.get('/:userId', purchaseController.getPurchaseHistory);
 
 module.exports = router;
