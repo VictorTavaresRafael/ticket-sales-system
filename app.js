@@ -4,6 +4,7 @@ const sequelize = require('./config/db');
 const apiAuthRoutes = require('./routes/api/authRoutes'); // Rotas de autenticação
 const apiUserRoutes = require('./routes/api/userRoutes'); // Rotas de usuários
 const apiTicketRoutes = require('./routes/api/ticketRoutes'); // Rotas de ingressos
+const apiPurchaseRoutes = require('./routes/api/purchaseRoutes');
 const webAuthRoutes = require('./routes/web/authRoutes'); // Rotas da interface web
 
 
@@ -27,6 +28,7 @@ sequelize.sync({ force: false }).then(() => {
 app.use('/api/auth', apiAuthRoutes); // Rotas de autenticação
 app.use('/api/users', apiUserRoutes); // Rotas de usuários
 app.use('/api/tickets', apiTicketRoutes); // Rotas de ingressos
+app.use('/api/purchases', apiPurchaseRoutes);
 
 // Rotas da interface web
 app.use('/auth', webAuthRoutes);
