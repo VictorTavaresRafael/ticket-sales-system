@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprar Ingresso</title>
+</head>
+<body>
+  <h1>Comprar Ingresso: {{ticket.name}}</h1>
+  <p>Preço: R$ {{ticket.price}}</p>
+  <p>Quantidade disponível: {{ticket.quantity}}</p>
+  <form action="/tickets/purchase/{{ticket.id}}" method="POST">
+    <label for="quantity">Quantidade:</label>
+    <input type="number" id="quantity" name="quantity" min="1" max="{{ticket.quantity}}" required>
+    <br>
+    <button type="submit">Comprar</button>
+  </form>
+  <a href="/tickets">Voltar para a lista de ingressos</a>
+</body>
+</html>
