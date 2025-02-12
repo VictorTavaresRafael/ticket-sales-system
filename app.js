@@ -6,7 +6,13 @@ const apiUserRoutes = require('./routes/api/userRoutes'); // Rotas de usuários
 const apiTicketRoutes = require('./routes/api/ticketRoutes'); // Rotas de ingressos
 const apiPurchaseRoutes = require('./routes/api/purchaseRoutes');
 const webAuthRoutes = require('./routes/web/authRoutes'); // Rotas da interface web
+const Ticket = require('./models/Ticket');
+const Purchase = require('./models/Purchase');
 
+
+// Carrega os modelos
+Ticket.associate({ Purchase });
+Purchase.associate({ Ticket });
 
 const app = express();
 

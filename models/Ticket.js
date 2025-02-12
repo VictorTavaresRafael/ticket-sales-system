@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-// const Purchase = require('./Purchase'); // Importe o modelo Purchase
 
 const Ticket = sequelize.define('Ticket', {
   name: DataTypes.STRING,
@@ -9,8 +8,8 @@ const Ticket = sequelize.define('Ticket', {
 });
 
 // Associação com o modelo Purchase
-// Ticket.associate = (models) => {
-//   Ticket.hasMany(models.Purchase, { foreignKey: 'ticketId' });
-// };
+Ticket.associate = (models) => {
+  Ticket.hasMany(models.Purchase, { foreignKey: 'ticketId' });
+};
 
 module.exports = Ticket;
