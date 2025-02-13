@@ -8,6 +8,7 @@ const apiTicketRoutes = require('./routes/api/ticketRoutes'); // Rotas de ingres
 const apiPurchaseRoutes = require('./routes/api/purchaseRoutes');
 const webAuthRoutes = require('./routes/web/authRoutes'); // Rotas da interface web
 const webTicketRoutes = require('./routes/web/ticketRoutes');
+const webPurchaseRoutes = require('./routes/web/purchaseRoutes');
 const Ticket = require('./models/Ticket');
 const Purchase = require('./models/Purchase');
 
@@ -31,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser()); // Configura o cookie-parser
 
 // Sincroniza o banco de dados
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   console.log('Banco de dados sincronizado.');
 });
 
@@ -44,6 +45,7 @@ app.use('/api/purchases', apiPurchaseRoutes);
 // Rotas da interface web
 app.use('/auth', webAuthRoutes);
 app.use('/tickets', webTicketRoutes);
+app.use('/purchases', webPurchaseRoutes);
 
 // Rota de teste
 app.get('/', (req, res) => {

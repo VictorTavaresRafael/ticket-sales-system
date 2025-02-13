@@ -1,6 +1,8 @@
+// routes/web/ticketRoutes.js
 const express = require('express');
 const router = express.Router();
-const { authenticate } = require('../../middleware/authMiddleware');
+const { authenticate, isAdmin } = require('../../middleware/authMiddleware');
+const ticketController = require('../../controllers/ticketController'); // Verifique o caminho
 const Purchase = require('../../models/Purchase');
 const Ticket = require('../../models/Ticket');
 
@@ -13,6 +15,9 @@ router.get('/', authenticate, async (req, res) => {
     res.status(500).send('Erro ao buscar ingressos');
   }
 });
+
+// Rota para criar um novo ingresso (apenas para administradores)
+router.post('/create', authenticate, isAdmin, ticketController.createTicket); // Aqui está o problema
 
 // Rota para processar a compra de um ingresso
 router.post('/purchase/:id', authenticate, async (req, res) => {

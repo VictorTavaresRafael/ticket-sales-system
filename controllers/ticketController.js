@@ -2,10 +2,11 @@
 const Ticket = require('../models/Ticket');
 const Purchase = require('../models/Purchase');
 
+// controllers/ticketController.js
 exports.createTicket = async (req, res) => {
-  const { name, price, quantity } = req.body;
+  const { name, price, quantity, description } = req.body; // Inclua description
   try {
-    const ticket = await Ticket.create({ name, price, quantity });
+    const ticket = await Ticket.create({ name, price, quantity, description }); // Inclua description
     res.status(201).json(ticket);
   } catch (error) {
     res.status(500).json({ message: 'Erro ao criar ingresso', error });
